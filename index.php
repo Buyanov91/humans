@@ -1,8 +1,8 @@
 <?php
-include_once ('human.php');
-include_once ('student.php');
-include_once ('woker.php');
-include_once ('manager.php');
+require_once ('human.php');
+require_once ('student.php');
+require_once ('woker.php');
+require_once ('manager.php');
 
 $human1 = new Human();
 $human1->setFirstname('Петя');

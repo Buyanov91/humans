@@ -5,8 +5,9 @@
  */
 class Woker extends Human
 {
+	const SALARY = 20000;
+	
     public static $count = 0;
-    const SALARY = 20000;
     private $fullSalary = [];
 
     public function __construct()
