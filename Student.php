@@ -1,10 +1,6 @@
 <?php
-<<<<<<< HEAD
-/**
-=======
 
-/** branch new
->>>>>>> new branch
+/**
  * Class Student
  */
 class Student extends Human
