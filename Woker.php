@@ -10,10 +10,10 @@ class Woker extends Human
     public static $count = 0;
     private $fullSalary = [];
 
-    public function __construct()
+    public function __construct($firstname, $lastname)
     {
         self::$count++;
-        parent::__construct();
+        parent::__construct($firstname, $lastname);
     }
 
     /**
@@ -22,15 +22,10 @@ class Woker extends Human
      */
     public function setSalary($date, $fullSalary = self::SALARY)
     {
-        static $count = 0;
-        if (!empty($fullSalary)) {
-            if ((int)$fullSalary > 0) {
-                $count++;
-                $this->fullSalary[$count]['date'] = $date;
-                $this->fullSalary[$count]['salary'] = $fullSalary;
-            } else {
-                throw new Exception("Зарплата должна бять положительным числом");
-            }
+        if ((int)$fullSalary > 0) {
+            $this->fullSalary[][$date]['salary'] = $fullSalary;
+        } else {
+            throw new Exception("Зарплата должна бять положительным числом");
         }
     }
 

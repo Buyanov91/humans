@@ -9,10 +9,10 @@ class Manager extends Woker
 
     private $list = [];
 
-    public function __construct()
+    public function __construct($firstname, $lastname)
     {
         self::$count++;
-        parent::__construct();
+        parent::__construct($firstname, $lastname);
     }
 
     /**
@@ -20,28 +20,26 @@ class Manager extends Woker
      * @param $lastname
      * @param $age
      */
-    public function add($firstname, $lastname, $age)
+    public function addWoker($woker)
     {
-        $woker = new Woker();
-        $woker->setFirstname($firstname);
-        $woker->setLastname($lastname);
-        $woker->setAge($age);
         $this->list[] = $woker;
     }
 
     /**
      * @param $lastname
      */
-    public function del($lastname)
+    public function delWoker($woker)
     {
         if (!empty($this->list)) {
-            foreach ($this->list as $key => $woker) {
-                if ($woker->getLastname() === $lastname) {
+            foreach ($this->list as $key => $wok) {
+                if ($wok === $woker) {
                     unset($this->list[$key]);
                     parent::$count--;
                     Human::$count--;
                 }
             }
+        } else {
+            throw new Exception("Увольнять некого!");
         }
     }
 
@@ -50,6 +48,6 @@ class Manager extends Woker
      */
     public function getList()
     {
-        $this->list;
+        return $this->list;
     }
 }

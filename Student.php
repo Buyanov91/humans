@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Class Student
  */
@@ -14,10 +13,10 @@ class Student extends Human
     private $studyForm = self::TYPE_OCHN;
     private $mark = [];
 
-    public function __construct()
+    public function __construct($firstname, $lastname)
     {
         self::$count++;
-        parent::__construct();
+        parent::__construct($firstname, $lastname);
     }
 
     /**

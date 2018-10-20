@@ -1,6 +1,5 @@
 <?php
-new change
-    again
+
 /**
  * Class Human
  */
@@ -8,20 +7,22 @@ class Human
 {
     public static $count = 0;
 
-    private $firstname;
-    private $lastname;
-    private $age;
+    private $firstname = 'Иван';
+    private $lastname = 'Иванов';
+    private $age = '25';
 
-    public function __construct()
+    public function __construct($firstname, $lastname)
     {
         self::$count++;
+        $this->setFirstname($firstname);
+        $this->setLastname($lastname);
     }
 
     /**
      * @param $firstname
      * @throws Exception
      */
-    public function setFirstname($firstname)
+    public function setFirstname(string $firstname)
     {
         $pattern = '/([a-zA-zа-яА-Я]+)/';
         if (preg_match($pattern, $firstname)) {
@@ -35,7 +36,7 @@ class Human
      * @param $lastname
      * @throws Exception
      */
-    public function setLastname($lastname)
+    public function setLastname(string $lastname)
     {
         $pattern = '/([a-zA-zа-яА-Я]+)/';
         if (preg_match($pattern, $lastname)) {
